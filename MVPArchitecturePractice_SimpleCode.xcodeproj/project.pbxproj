@@ -13,7 +13,6 @@
 		6511A39C1EA8652500EB87B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6511A39B1EA8652500EB87B8 /* Assets.xcassets */; };
 		6511A39F1EA8652500EB87B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6511A39D1EA8652500EB87B8 /* LaunchScreen.storyboard */; };
 		6511A3AB1EA8690A00EB87B8 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6511A3AA1EA8690A00EB87B8 /* BookViewController.m */; };
-		6511A3AE1EA8861E00EB87B8 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 6511A3AD1EA8861E00EB87B8 /* Book.m */; };
 		6511A3B11EA88B8B00EB87B8 /* BookService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6511A3B01EA88B8B00EB87B8 /* BookService.m */; };
 		6511A3B41EA8B58400EB87B8 /* BookPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6511A3B31EA8B58400EB87B8 /* BookPresenter.m */; };
 /* End PBXBuildFile section */
@@ -29,8 +28,6 @@
 		6511A3A01EA8652500EB87B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6511A3A91EA8690A00EB87B8 /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookViewController.h; sourceTree = "<group>"; };
 		6511A3AA1EA8690A00EB87B8 /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookViewController.m; sourceTree = "<group>"; };
-		6511A3AC1EA8861E00EB87B8 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
-		6511A3AD1EA8861E00EB87B8 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		6511A3AF1EA88B8B00EB87B8 /* BookService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookService.h; sourceTree = "<group>"; };
 		6511A3B01EA88B8B00EB87B8 /* BookService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookService.m; sourceTree = "<group>"; };
 		6511A3B21EA8B58400EB87B8 /* BookPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookPresenter.h; sourceTree = "<group>"; };
@@ -71,8 +68,6 @@
 				6511A3931EA8652500EB87B8 /* AppDelegate.m */,
 				6511A3A91EA8690A00EB87B8 /* BookViewController.h */,
 				6511A3AA1EA8690A00EB87B8 /* BookViewController.m */,
-				6511A3AC1EA8861E00EB87B8 /* Book.h */,
-				6511A3AD1EA8861E00EB87B8 /* Book.m */,
 				6511A3AF1EA88B8B00EB87B8 /* BookService.h */,
 				6511A3B01EA88B8B00EB87B8 /* BookService.m */,
 				6511A3B21EA8B58400EB87B8 /* BookPresenter.h */,
@@ -166,7 +161,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6511A3AE1EA8861E00EB87B8 /* Book.m in Sources */,
 				6511A3B11EA88B8B00EB87B8 /* BookService.m in Sources */,
 				6511A3AB1EA8690A00EB87B8 /* BookViewController.m in Sources */,
 				6511A3941EA8652500EB87B8 /* AppDelegate.m in Sources */,
@@ -332,6 +326,7 @@
 				6511A3A51EA8652500EB87B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

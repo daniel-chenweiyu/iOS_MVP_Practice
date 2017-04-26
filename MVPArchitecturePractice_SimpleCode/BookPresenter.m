@@ -7,47 +7,58 @@
 //
 
 #import "BookPresenter.h"
-#import "BookService.h"
+
+#define USERDEFAULTS_SET_VALUE_KEY @"books"
 
 @implementation BookPresenter {
     BookService *bookService;
-    NSObject<BookPresenterDelegate> *bookView;
+    NSUserDefaults *userDefaults;
 }
 
 - (instancetype)init {
     
     self = [super init];
     bookService = [BookService new];
+    userDefaults = [NSUserDefaults standardUserDefaults];
     return  self;
 }
 
-- (void)attachView:(id<BookPresenterDelegate>)delegate {
+- (void)attachView:(id<BookViewDelegate>)delegate {
     
-    bookView = delegate;
+    self.delegate = delegate;
 }
 
 - (void) detachView {
     
-    bookView = nil;
+    self.delegate = nil;
 }
 
 - (void)getBooks {
     
-    [bookView startLoading];
+    [self.delegate startLoadingWithPresent:self];
     [bookService getBooksWithCompletion:^(bool isSucces, id result) {
         
         if (isSucces) {
             
-            [bookView finishLoading];
-            NSArray *books = [NSArray arrayWithArray:result];
+            [self.delegate finishLoadingWithPresent:self];
+            NSMutableArray *books = [NSMutableArray arrayWithArray:result];
+            
             if (books.count == 0) {
-                [bookView setEmptyBooks];
-            } else {
                 
-                [bookView setBooksWithArray:books];
+                [self.delegate setEmptyBooksWithPresent:self];
+            } else {
+
+                [userDefaults setObject:books forKey:USERDEFAULTS_SET_VALUE_KEY];
+                [userDefaults synchronize];
+                [self.delegate setBooksWithPresent:self withArray:books];
             }
         }
     }];
 }
 
+- (void)chagneBookInfo:(NSMutableArray *)books {
+    
+    [userDefaults setObject:books forKey:USERDEFAULTS_SET_VALUE_KEY];
+    [userDefaults synchronize];
+}
 @end

@@ -7,14 +7,14 @@
 //
 
 #import "BookService.h"
-#import "Book.h"
 
 @implementation BookService
+
 - (void)getBooksWithCompletion:(DoneHandler)done {
     
-    Book *book1 = [self getBookWithBookName:@"Game of Thrones" withAuthor:@"GeorgeR.R.Martin" withISBN:@"11234" withPrice:300];
-    Book *book2 = [self getBookWithBookName:@"Harry Potter" withAuthor:@"J.K.Rowling" withISBN:@"53463" withPrice:400];
-    Book *book3 = [self getBookWithBookName:@"The Lord of the Rings" withAuthor:@"J.R.R.Tolkien " withISBN:@"939" withPrice:250];
+    NSMutableDictionary *book1 = [self getBookWithBookName:@"Game of Thrones" withAuthor:@"GeorgeR.R.Martin" withISBN:@"11234" withPrice:@"300"];
+    NSMutableDictionary *book2 = [self getBookWithBookName:@"Harry Potter" withAuthor:@"J.K.Rowling" withISBN:@"53463" withPrice:@"400"];
+    NSMutableDictionary *book3 = [self getBookWithBookName:@"The Lord of the Rings" withAuthor:@"J.R.R.Tolkien " withISBN:@"939" withPrice:@"250"];
     
     NSArray *books = @[book1,book2,book3];
     
@@ -22,14 +22,16 @@
         done(true,books);
     });
 }
-- (Book*)getBookWithBookName:(NSString*)bookName withAuthor:(NSString*)author withISBN:(NSString*)isbn withPrice:(int)price {
+
+- (NSMutableDictionary*)getBookWithBookName:(NSString*)bookName withAuthor:(NSString*)author withISBN:(NSString*)isbn withPrice:(NSString*)price {
     
-    Book * bookInfo = [Book new];
-    bookInfo.bookName = bookName;
-    bookInfo.author = author;
-    bookInfo.isbn = isbn;
-    bookInfo.price = price;
+    NSMutableDictionary *bookInfo = [NSMutableDictionary new];
+    [bookInfo setValue:bookName forKey:BOOK_NAME];
+    [bookInfo setValue:author forKey:AUTHOR];
+    [bookInfo setValue:isbn forKey:ISBN];
+    [bookInfo setValue:price forKey:PRICE];
     
     return bookInfo;
 }
+
 @end

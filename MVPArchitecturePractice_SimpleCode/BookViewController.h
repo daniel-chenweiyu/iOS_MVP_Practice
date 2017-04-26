@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 
-@interface BookViewController : UIViewController 
+@interface BookViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIView *emptyView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
