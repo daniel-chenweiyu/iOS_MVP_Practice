@@ -15,6 +15,7 @@
 		6511A3AB1EA8690A00EB87B8 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6511A3AA1EA8690A00EB87B8 /* BookViewController.m */; };
 		6511A3B11EA88B8B00EB87B8 /* BookService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6511A3B01EA88B8B00EB87B8 /* BookService.m */; };
 		6511A3B41EA8B58400EB87B8 /* BookPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6511A3B31EA8B58400EB87B8 /* BookPresenter.m */; };
+		789DE8991EB0420A00DCF4EC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789DE8981EB0420A00DCF4EC /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		6511A3B01EA88B8B00EB87B8 /* BookService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookService.m; sourceTree = "<group>"; };
 		6511A3B21EA8B58400EB87B8 /* BookPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookPresenter.h; sourceTree = "<group>"; };
 		6511A3B31EA8B58400EB87B8 /* BookPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookPresenter.m; sourceTree = "<group>"; };
+		789DE8981EB0420A00DCF4EC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789DE8991EB0420A00DCF4EC /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +53,7 @@
 			children = (
 				6511A38E1EA8652500EB87B8 /* MVPArchitecturePractice_SimpleCode */,
 				6511A38D1EA8652500EB87B8 /* Products */,
+				789DE8971EB0420A00DCF4EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +91,14 @@
 				6511A3901EA8652500EB87B8 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		789DE8971EB0420A00DCF4EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				789DE8981EB0420A00DCF4EC /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

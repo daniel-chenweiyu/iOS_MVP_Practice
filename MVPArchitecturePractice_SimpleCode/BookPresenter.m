@@ -35,30 +35,33 @@
 
 - (void)getBooks {
     
-    [self.delegate startLoadingWithPresent:self];
+    [self.delegate bookPresenterStartLoading:self];
     [bookService getBooksWithCompletion:^(bool isSucces, id result) {
         
         if (isSucces) {
             
-            [self.delegate finishLoadingWithPresent:self];
+            [self.delegate bookPresenterFinishLoading:self];
             NSMutableArray *books = [NSMutableArray arrayWithArray:result];
             
             if (books.count == 0) {
                 
-                [self.delegate setEmptyBooksWithPresent:self];
+                [self.delegate bookPresenterSetEmptyBooks:self];
             } else {
 
                 [userDefaults setObject:books forKey:USERDEFAULTS_SET_VALUE_KEY];
                 [userDefaults synchronize];
-                [self.delegate setBooksWithPresent:self withArray:books];
+                [self.delegate bookPresenterSetBooks:self withArray:books];
             }
         }
     }];
 }
 
-- (void)chagneBookInfo:(NSMutableArray *)books {
-    
+#pragma  mark - BookPresenterDelegate
+- (void)bookPresenterChangeDB:(BookPresenter *)present withArray:(NSMutableArray *)books withCompletion:(DoneHandler _Nullable)done{
     [userDefaults setObject:books forKey:USERDEFAULTS_SET_VALUE_KEY];
     [userDefaults synchronize];
+    done(true,nil);
 }
+
 @end
+

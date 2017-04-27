@@ -10,20 +10,28 @@
 #import "BookService.h"
 
 @class BookPresenter;
-@protocol BookViewDelegate <NSObject>
 
-- (void) startLoadingWithPresent:(BookPresenter*_Nullable)present;
-- (void) finishLoadingWithPresent:(BookPresenter*_Nullable)present;
-- (void) setBooksWithPresent:(BookPresenter*_Nullable)present withArray:(NSMutableArray*_Nullable) books;
-- (void) setEmptyBooksWithPresent:(BookPresenter*_Nullable)present;
+@protocol BookPresenterDelegate <NSObject>
+
+- (void) bookPresenterChangeDB:(BookPresenter*_Nullable)present withArray:(NSMutableArray*_Nullable)books withCompletion:(DoneHandler _Nullable )done;
 
 @end
 
-@interface BookPresenter : NSObject
+@protocol BookViewDelegate <NSObject>
+
+- (void) bookPresenterStartLoading:(BookPresenter*_Nullable)present;
+- (void) bookPresenterFinishLoading:(BookPresenter*_Nullable)present;
+- (void) bookPresenterSetBooks:(BookPresenter*_Nullable)present withArray:(NSMutableArray*_Nullable) books;
+- (void) bookPresenterSetEmptyBooks:(BookPresenter*_Nullable)present;
+
+@end
+
+@interface BookPresenter : NSObject <BookPresenterDelegate>
 @property (nonatomic, weak, nullable) id <BookViewDelegate> delegate;
 
 - (void)attachView:(_Nullable id<BookViewDelegate>)delegate;
 - (void)getBooks;
-- (void)chagneBookInfo:(NSMutableArray*_Nullable)books;
+
 @end
+
 

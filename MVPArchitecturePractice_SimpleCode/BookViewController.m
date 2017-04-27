@@ -9,7 +9,7 @@
 #import "BookViewController.h"
 #import "BookPresenter.h"
 
-@interface BookViewController () <BookViewDelegate,UITableViewDataSource,UITableViewDelegate> {
+@interface BookViewController () <BookViewDelegate,UITableViewDataSource,UITableViewDelegate,WKUIDelegate> {
     BookPresenter *bookPresenter;
     NSMutableArray *booksToDisplay;
     NSMutableDictionary * bookInfo;
@@ -26,8 +26,8 @@
     bookPresenter = [BookPresenter new];
     //以下方法皆可讓 bookPresenter delegate 設成 BookViewController
     [bookPresenter attachView:self];
-//    bookPresenter.delegate = self;
-//    [bookPresenter setDelegate:self];
+    //    bookPresenter.delegate = self;
+    //    [bookPresenter setDelegate:self];
     [bookPresenter getBooks];
     bookInfo = [NSMutableDictionary new];
 }
@@ -74,10 +74,14 @@
         [bookInfo setObject:editAlert.textFields.firstObject.text forKey:BOOK_NAME];
         [bookInfo setObject:editAlert.textFields.lastObject.text forKey:PRICE];
         booksToDisplay[indexPath.row] = bookInfo;
-        [bookPresenter chagneBookInfo:booksToDisplay];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
+        [bookPresenter bookPresenterChangeDB:bookPresenter withArray:booksToDisplay withCompletion:^(bool isSucces, id result) {
+            
+            if (isSucces) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                });
+            }
+        }];
     }];
     UIAlertAction *editCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil];
     [editAlert addAction:editCancel];
@@ -85,29 +89,26 @@
     [self presentViewController:editAlert animated:true completion:nil];
 }
 
-#pragma  mark - BookPresenterDelegate
-- (void)startLoadingWithPresent:(BookPresenter *)present {
+#pragma  mark - BookViewDelegate
+- (void) bookPresenterStartLoading:(BookPresenter*_Nullable)present {
     
     [_activityIndicator startAnimating];
     [_tableView setHidden:true];
     [_emptyView setHidden:false];
 }
-
-- (void)finishLoadingWithPresent:(BookPresenter *)present {
+- (void) bookPresenterFinishLoading:(BookPresenter*_Nullable)present {
     
     [_activityIndicator stopAnimating];
     [_tableView setHidden:false];
     [_emptyView setHidden:true];
     [_activityIndicator setHidden:true];
 }
-
-- (void)setBooksWithPresent:(BookPresenter *)present withArray:(NSMutableArray *)books {
+- (void) bookPresenterSetBooks:(BookPresenter*_Nullable)present withArray:(NSMutableArray*_Nullable) books {
     
     booksToDisplay = books;
     [_tableView reloadData];
 }
-
-- (void)setEmptyBooksWithPresent:(BookPresenter *)present {
+- (void) bookPresenterSetEmptyBooks:(BookPresenter*_Nullable)present {
     
     [_tableView setHidden:true];
     [_emptyView setHidden:false];
