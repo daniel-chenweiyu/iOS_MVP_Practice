@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
+#define internetInfo @"NAME"
+
 
 @interface BookViewController : UIViewController
 

@@ -16,7 +16,18 @@
 		6511A3B11EA88B8B00EB87B8 /* BookService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6511A3B01EA88B8B00EB87B8 /* BookService.m */; };
 		6511A3B41EA8B58400EB87B8 /* BookPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6511A3B31EA8B58400EB87B8 /* BookPresenter.m */; };
 		789DE8991EB0420A00DCF4EC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789DE8981EB0420A00DCF4EC /* WebKit.framework */; };
+		78E9DBE11ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9DBE01ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		78E9DBE31ECEC80B00F12E2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6511A3841EA8652500EB87B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6511A38B1EA8652500EB87B8;
+			remoteInfo = MVPArchitecturePractice_SimpleCode;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6511A38C1EA8652500EB87B8 /* MVPArchitecturePractice_SimpleCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVPArchitecturePractice_SimpleCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +45,9 @@
 		6511A3B21EA8B58400EB87B8 /* BookPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookPresenter.h; sourceTree = "<group>"; };
 		6511A3B31EA8B58400EB87B8 /* BookPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookPresenter.m; sourceTree = "<group>"; };
 		789DE8981EB0420A00DCF4EC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		78E9DBDE1ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVPArchitecturePractice_SimpleCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		78E9DBE01ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPArchitecturePractice_SimpleCodeTests.m; sourceTree = "<group>"; };
+		78E9DBE21ECEC80B00F12E2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +59,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78E9DBDB1ECEC80B00F12E2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -52,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				6511A38E1EA8652500EB87B8 /* MVPArchitecturePractice_SimpleCode */,
+				78E9DBDF1ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests */,
 				6511A38D1EA8652500EB87B8 /* Products */,
 				789DE8971EB0420A00DCF4EC /* Frameworks */,
 			);
@@ -61,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				6511A38C1EA8652500EB87B8 /* MVPArchitecturePractice_SimpleCode.app */,
+				78E9DBDE1ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +124,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		78E9DBDF1ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				78E9DBE01ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests.m */,
+				78E9DBE21ECEC80B00F12E2D /* Info.plist */,
+			);
+			path = MVPArchitecturePractice_SimpleCodeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,6 +153,24 @@
 			productReference = 6511A38C1EA8652500EB87B8 /* MVPArchitecturePractice_SimpleCode.app */;
 			productType = "com.apple.product-type.application";
 		};
+		78E9DBDD1ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78E9DBE71ECEC80B00F12E2D /* Build configuration list for PBXNativeTarget "MVPArchitecturePractice_SimpleCodeTests" */;
+			buildPhases = (
+				78E9DBDA1ECEC80B00F12E2D /* Sources */,
+				78E9DBDB1ECEC80B00F12E2D /* Frameworks */,
+				78E9DBDC1ECEC80B00F12E2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				78E9DBE41ECEC80B00F12E2D /* PBXTargetDependency */,
+			);
+			name = MVPArchitecturePractice_SimpleCodeTests;
+			productName = MVPArchitecturePractice_SimpleCodeTests;
+			productReference = 78E9DBDE1ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -134,6 +184,12 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = XM7PE2ATP2;
 						ProvisioningStyle = Automatic;
+					};
+					78E9DBDD1ECEC80B00F12E2D = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = A7JGW3DUR8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6511A38B1EA8652500EB87B8;
 					};
 				};
 			};
@@ -151,6 +207,7 @@
 			projectRoot = "";
 			targets = (
 				6511A38B1EA8652500EB87B8 /* MVPArchitecturePractice_SimpleCode */,
+				78E9DBDD1ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -163,6 +220,13 @@
 				6511A39F1EA8652500EB87B8 /* LaunchScreen.storyboard in Resources */,
 				6511A39C1EA8652500EB87B8 /* Assets.xcassets in Resources */,
 				6511A39A1EA8652500EB87B8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78E9DBDC1ECEC80B00F12E2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +245,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78E9DBDA1ECEC80B00F12E2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78E9DBE11ECEC80B00F12E2D /* MVPArchitecturePractice_SimpleCodeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		78E9DBE41ECEC80B00F12E2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6511A38B1EA8652500EB87B8 /* MVPArchitecturePractice_SimpleCode */;
+			targetProxy = 78E9DBE31ECEC80B00F12E2D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6511A3981EA8652500EB87B8 /* Main.storyboard */ = {
@@ -319,6 +399,32 @@
 			};
 			name = Release;
 		};
+		78E9DBE51ECEC80B00F12E2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = A7JGW3DUR8;
+				INFOPLIST_FILE = MVPArchitecturePractice_SimpleCodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inspur.MVPArchitecturePractice-SimpleCodeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVPArchitecturePractice_SimpleCode.app/MVPArchitecturePractice_SimpleCode";
+			};
+			name = Debug;
+		};
+		78E9DBE61ECEC80B00F12E2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = A7JGW3DUR8;
+				INFOPLIST_FILE = MVPArchitecturePractice_SimpleCodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inspur.MVPArchitecturePractice-SimpleCodeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVPArchitecturePractice_SimpleCode.app/MVPArchitecturePractice_SimpleCode";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -339,6 +445,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		78E9DBE71ECEC80B00F12E2D /* Build configuration list for PBXNativeTarget "MVPArchitecturePractice_SimpleCodeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78E9DBE51ECEC80B00F12E2D /* Debug */,
+				78E9DBE61ECEC80B00F12E2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -34,26 +34,48 @@
 }
 
 - (void)getBooks {
-    
+    NSLog(@"=====================Test 1");
     [self.delegate bookPresenterStartLoading:self];
-    [bookService getBooksWithCompletion:^(bool isSucces, id result) {
+    NSURL *url = [NSURL URLWithString:@"http://172.16.129.61:8080/video/mvp_test"];
+    NSURLSessionConfiguration * config =[NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession * session = [NSURLSession sessionWithConfiguration:config];
+    NSURLSessionTask * task =[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
-        if (isSucces) {
-            
-            [self.delegate bookPresenterFinishLoading:self];
-            NSMutableArray *books = [NSMutableArray arrayWithArray:result];
-            
-            if (books.count == 0) {
-                
-                [self.delegate bookPresenterSetEmptyBooks:self];
-            } else {
-
-                [userDefaults setObject:books forKey:USERDEFAULTS_SET_VALUE_KEY];
-                [userDefaults synchronize];
-                [self.delegate bookPresenterSetBooks:self withArray:books];
-            }
+        if(error) {
+            NSLog(@"Download JSON Fail: %@",error);
+//            done(error,nil);
+            NSLog(@"=====================Test 2-1");
+            return ;
         }
+        [self.delegate bookPresenterFinishLoading:self];
+//        [NSThread sleepForTimeInterval:5];
+        NSLog(@"=====================Test 2-2=====================");
+        NSMutableArray *books = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:nil];
+        [userDefaults setObject:books forKey:USERDEFAULTS_SET_VALUE_KEY];
+        [userDefaults synchronize];
+        [self.delegate bookPresenterSetBooks:self withArray:books];
+//             done(nil,nil);
     }];
+    [task resume];
+    
+    //    [bookService getBooksWithCompletion:^(bool isSucces, id result) {
+    //
+    //        if (isSucces) {
+    //
+    //            [self.delegate bookPresenterFinishLoading:self];
+    //            NSMutableArray *books = [NSMutableArray arrayWithArray:result];
+    //
+    //            if (books.count == 0) {
+    //
+    //                [self.delegate bookPresenterSetEmptyBooks:self];
+    //            } else {
+    //
+    //                [userDefaults setObject:books forKey:USERDEFAULTS_SET_VALUE_KEY];
+    //                [userDefaults synchronize];
+    //                [self.delegate bookPresenterSetBooks:self withArray:books];
+    //            }
+    //        }
+    //    }];
 }
 
 #pragma  mark - BookPresenterDelegate

@@ -25,7 +25,7 @@
     self.tableView.delegate = self;
     bookPresenter = [BookPresenter new];
     //以下方法皆可讓 bookPresenter delegate 設成 BookViewController
-    [bookPresenter attachView:self];
+    [bookPresenter attachView:self];  // custom method
     //    bookPresenter.delegate = self;
     //    [bookPresenter setDelegate:self];
     [bookPresenter getBooks];
@@ -48,8 +48,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     bookInfo = booksToDisplay[indexPath.row];
-    cell.textLabel.text = [bookInfo valueForKey:BOOK_NAME];
-    cell.detailTextLabel.text = [bookInfo valueForKey:PRICE];
+    cell.textLabel.text = [bookInfo valueForKey:internetInfo];
+    cell.detailTextLabel.text = @"3";
+    //    cell.textLabel.text = [bookInfo valueForKey:BOOK_NAME];
+    //    cell.detailTextLabel.text = [bookInfo valueForKey:PRICE];
     return cell;
 }
 
@@ -62,12 +64,14 @@
     [editAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         
         textField.placeholder = @"書名";
-        textField.text = [bookInfo valueForKey:BOOK_NAME];
+        textField.text = [bookInfo valueForKey:internetInfo];
+        //        textField.text = [bookInfo valueForKey:BOOK_NAME];
     }];
     [editAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         
         textField.placeholder = @"書價";
-        textField.text = [bookInfo valueForKey:PRICE];
+        textField.text = @"3";
+        //        textField.text = [bookInfo valueForKey:PRICE];
     }];
     UIAlertAction *editSend = [UIAlertAction actionWithTitle:@"Send" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -106,7 +110,9 @@
 - (void) bookPresenterSetBooks:(BookPresenter*_Nullable)present withArray:(NSMutableArray*_Nullable) books {
     
     booksToDisplay = books;
-    [_tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_tableView reloadData];
+    });
 }
 - (void) bookPresenterSetEmptyBooks:(BookPresenter*_Nullable)present {
     

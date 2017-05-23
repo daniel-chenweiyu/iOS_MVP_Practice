@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "BookService.h"
-
 @class BookPresenter;
 
 @protocol BookPresenterDelegate <NSObject>
@@ -30,6 +29,7 @@
 @property (nonatomic, weak, nullable) id <BookViewDelegate> delegate;
 
 - (void)attachView:(_Nullable id<BookViewDelegate>)delegate;
+- (void) detachView;
 - (void)getBooks;
 
 @end
